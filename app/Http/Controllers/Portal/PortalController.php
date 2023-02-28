@@ -8,6 +8,7 @@ use App\Models\AdArt;
 use App\Models\Agenda;
 use App\Models\Anggota;
 use App\Models\Berita;
+use App\Models\Dojeng;
 use App\Models\Materi;
 use App\Models\Pelatih;
 use App\Models\Pengumuman;
@@ -270,5 +271,11 @@ class PortalController extends Controller
         // return response()->json($request);
 
         return redirect()->route('portal.struktur1');
+    }
+
+    public function dojang()
+    {
+        $dojang =  Dojeng::all();
+        return view('portal.pages.dojang.index', compact('dojang'));
     }
 }

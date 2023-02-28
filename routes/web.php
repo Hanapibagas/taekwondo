@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\Admin\About\SambutanKetuaUmumController;
 use App\Http\Controllers\Dashboard\Admin\About\ProgramKerjaController;
 use App\Http\Controllers\Dashboard\Admin\About\PencabController;
 use App\Http\Controllers\Dashboard\Admin\About\AdArtController;
+use App\Http\Controllers\Dashboard\Admin\About\SaranController;
 use App\Http\Controllers\Dashboard\Admin\AgendaController;
 use App\Http\Controllers\Dashboard\Admin\DashboardController;
 use App\Http\Controllers\Dashboard\Admin\BeritaController;
@@ -90,6 +91,9 @@ Route::middleware(['auth', 'role:1'])->group(function () {
         // Ad Art
         Route::get('ad-art', [AdArtController::class, 'index'])->name('ad-art');
         Route::post('ad-art/{id}', [AdArtController::class, 'update'])->name('ad.update');
+
+        // Saran
+        Route::get('saran', [SaranController::class, 'index'])->name('index-saran');
 
         // Portal Berita
         // Berita
