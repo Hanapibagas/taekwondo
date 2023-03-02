@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\Admin\About\SambutanKetuaUmumController;
 use App\Http\Controllers\Dashboard\Admin\About\ProgramKerjaController;
 use App\Http\Controllers\Dashboard\Admin\About\PencabController;
 use App\Http\Controllers\Dashboard\Admin\About\AdArtController;
+use App\Http\Controllers\Dashboard\Admin\About\CalonMemberController;
 use App\Http\Controllers\Dashboard\Admin\About\SaranController;
 use App\Http\Controllers\Dashboard\Admin\AgendaController;
 use App\Http\Controllers\Dashboard\Admin\DashboardController;
@@ -65,6 +66,8 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'role:1'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('dasborad',  [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('calon-murid', [CalonMemberController::class, 'index'])->name('index.calon.member');
 
         // Portal tentang
         // Sambutan
@@ -294,6 +297,9 @@ Route::prefix('keanggotaan')->group(function () {
 
     Route::get('data-wasit', [PortalController::class, 'wasit'])->name('portal.wasit');
     Route::get('data-pelatih', [PortalController::class, 'pelatih'])->name('portal.pelatih');
+
+    Route::get('member', [PortalController::class, 'member'])->name('portal.member');
+    Route::post('kirim', [PortalController::class, 'daftar_calon_murid'])->name('store.calon.murid');
 });
 
 // route Artisan

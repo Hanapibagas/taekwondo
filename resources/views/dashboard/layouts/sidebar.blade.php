@@ -74,6 +74,9 @@
                         <li class="submenu-item ">
                             <a href="{{ route('pelatih.index') }} ">Data Pelatih</a>
                         </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('index.calon.member') }} ">Data Calon Murid</a>
+                        </li>
 
                     </ul>
                 </li>

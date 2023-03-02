@@ -8,6 +8,7 @@ use App\Models\AdArt;
 use App\Models\Agenda;
 use App\Models\Anggota;
 use App\Models\Berita;
+use App\Models\CalonMurid;
 use App\Models\Dojeng;
 use App\Models\Materi;
 use App\Models\Pelatih;
@@ -26,6 +27,7 @@ use App\Models\Testimoni;
 use App\Models\StrukturKepengurusan;
 use App\Models\Video;
 use App\Models\Wasit;
+use DateTime;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -277,5 +279,45 @@ class PortalController extends Controller
     {
         $dojang =  Dojeng::all();
         return view('portal.pages.dojang.index', compact('dojang'));
+    }
+
+    public function member()
+    {
+        $dojang = Dojeng::all();
+        return view('portal.pages.keanggotaan.from-anggota-baru', compact('dojang'));
+    }
+
+    public function daftar_calon_murid(Request $request)
+    {
+        $this->validate($request, [
+            'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'nama_orang_tua', 'pendidikan', 'agama', 'no_hp', 'kabupaten_kota', 'kacamatan', 'dojan_id'
+        ]);
+
+        $birthDate = new DateTime($request->tanggal_lahir);
+        $today = new DateTime("today");
+
+        $y = $today->diff($birthDate)->y;
+        // $umur = date("Y-m-d") - $request->tanggal_lahir;[]
+        // return response()->json($y);
+        $test = CalonMurid::create([
+            'nama_lengkap' => $request->nama_lengkap,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
+            'umur' => $y,
+            'nama_orang_tua' => $request->nama_orang_tua,
+            'pendidikan' => $request->pendidikan,
+            'umum' => $request->umum,
+            'agama' => $request->agama,
+            'no_hp' => $request->no_hp,
+            'status_pendaftaran' => $request->status_pendaftaran,
+            'geup' => $request->geup,
+            'kabupaten_kota' => $request->kabupaten_kota,
+            'kacamatan' => $request->kacamatan,
+            'dojang_id' => $request->dojang_id
+        ]);
+
+        // return response()->json($test);
+        return redirect()->route('portal.member');
     }
 }

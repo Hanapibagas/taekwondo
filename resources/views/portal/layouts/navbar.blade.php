@@ -80,6 +80,9 @@
                                     <li class="nav-item"><a href="{{ route('portal.pelatih') }}" class="nav-link">Data
                                             Pelatih</a>
                                     </li>
+                                    <li class="nav-item"><a href="{{ route('portal.member') }}" class="nav-link">Daftar
+                                            Calon Murid</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
