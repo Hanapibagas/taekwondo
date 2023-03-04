@@ -89,7 +89,7 @@
 
 
   //ketika tombol add  di tekan
-  $('#button-tambah').click(function() {
+  $('#button-tambah').click(function() {    
     $('#button-simpan').html('Simpan'); //valuenya menjadi create-post
     $('#id').val(''); //valuenya menjadi kosong
     $('#result').html('') //valuenya menjadi kosong
