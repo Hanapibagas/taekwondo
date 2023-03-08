@@ -91,16 +91,28 @@
                                 <div class="form-group">
                                     <label for="nama">Pendidikan<i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="pendidikan" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
+                                    <select name="pendidikan" @error('pendidikan') is-invalid @enderror
+                                        class="form-control">
+                                        <option value="Silahkan pilih">Silahkan Pilih</option>
+                                        <option value="Pelajar">Pelajar</option>
+                                        <option value="Mahasiswa">Mahasiswa</option>
+                                        <option value="Umum">Umum</option>
+                                    </select>
                                     @if($errors->has('nama'))
                                     <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Agama<i class="text-danger" style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="agama" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
+                                    <select class="form-control" name="agama" @error('agama') is-invalid @enderror">
+                                        <option value="Silahkan pilih">Silahkan Pilih</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                    </select>
                                     @if($errors->has('nama'))
                                     <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
                                     @endif
@@ -117,8 +129,12 @@
                                 <div class="form-group">
                                     <label for="nama">Status Pendaftaran<i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="status_pendaftaran" @error('nama')
-                                        is-invalid @enderror" name="nama" autocomplete="off" autofocus>
+                                    <select class="form-control" name="status_pendaftaran" @error('nama') is-invalid
+                                        @enderror">
+                                        <option value="Silahkan pilih">Silahkan Pilih</option>
+                                        <option value="Baru">Baru</option>
+                                        <option value="Pindah">Pindah</option>
+                                    </select>
                                     @if($errors->has('nama'))
                                     <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
                                     @endif
@@ -142,20 +158,19 @@
                                 <div class="form-group">
                                     <label for="nama">Kabupaten/Kota<i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="kabupaten_kota" @error('nama')
-                                        is-invalid @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
+                                    <select name="kabupaten_kota" class="form-control" id="kabupaten">
+                                        <option value="">Silahkan isi</option>
+                                        @foreach ($kabupaten as $item )
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Kacamatan<i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="kacamatan" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
+                                    <select name="kacamatan" class="form-control" id="kacamatan">
+                                        <option value="">Silahkan pilih</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Pilih Dojang</label><br>
@@ -189,4 +204,41 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+        });
+
+        $(function() {
+            $('#kabupaten').on('change', function() {
+                let id_kacamatan = $('#kabupaten').val();
+console.log(id_kacamatan);
+                $.ajax({
+                    type: 'get',
+                    url: '{{ route('getkacamatan') }}',
+                    data: {
+                        id_kacamatan: id_kacamatan
+                    },
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kacamatan').html(msg);
+                        // $('#kecamatan').html('');
+                        // $('#desa').html('');
+                    },
+                    error: function(data) {
+                        console.log('error:', data);
+                    }
+                })
+            })
+        });
+</script>
 @endpush

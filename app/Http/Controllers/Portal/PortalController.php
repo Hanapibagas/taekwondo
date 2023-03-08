@@ -9,6 +9,7 @@ use App\Models\Agenda;
 use App\Models\Anggota;
 use App\Models\Berita;
 use App\Models\CalonMurid;
+use App\Models\District;
 use App\Models\Dojeng;
 use App\Models\Materi;
 use App\Models\Pelatih;
@@ -284,7 +285,21 @@ class PortalController extends Controller
     public function member()
     {
         $dojang = Dojeng::all();
-        return view('portal.pages.keanggotaan.from-anggota-baru', compact('dojang'));
+        $kabupaten = Regency::where('province_id', 73)->get();
+        return view('portal.pages.keanggotaan.from-anggota-baru', compact('dojang', 'kabupaten'));
+    }
+
+    public function getkacamatan(Request $request)
+    {
+        $id_kacamatan = $request->id_kacamatan;
+
+        $kacamatans = District::where('regency_id', $id_kacamatan)->get();
+
+        $option = "";
+        foreach ($kacamatans as $kacamatan) {
+            $option .= "<option value='$kacamatan->id'>$kacamatan->name</option>";
+        }
+        echo $option;
     }
 
     public function daftar_calon_murid(Request $request)

@@ -300,6 +300,7 @@ Route::prefix('keanggotaan')->group(function () {
 
     Route::get('member', [PortalController::class, 'member'])->name('portal.member');
     Route::post('kirim', [PortalController::class, 'daftar_calon_murid'])->name('store.calon.murid');
+    Route::get('id-kacamatan', [PortalController::class, 'getkacamatan'])->name('getkacamatan');
 });
 
 // route Artisan
