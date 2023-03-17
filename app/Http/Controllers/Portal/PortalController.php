@@ -335,4 +335,12 @@ class PortalController extends Controller
         // return response()->json($test);
         return redirect()->route('portal.member');
     }
+
+    public function pendaftaran_pelatih()
+    {
+        $sabuks = Sabuk::all();
+        $dojang = Dojeng::all();
+        $kabupaten = Regency::where('province_id', 73)->get();
+        return view('portal.pages.keanggotaan.form_pelatih', compact('kabupaten', 'dojang', 'sabuks'));
+    }
 }

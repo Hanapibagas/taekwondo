@@ -299,6 +299,9 @@ Route::prefix('keanggotaan')->group(function () {
     Route::get('data-pelatih', [PortalController::class, 'pelatih'])->name('portal.pelatih');
 
     Route::get('member', [PortalController::class, 'member'])->name('portal.member');
+    Route::get('dojang', [PortalController::class, 'pendaftaran_dojang'])->name('portal.pendaftaran.dojang');
+    Route::get('pelatih', [PortalController::class, 'pendaftaran_pelatih'])->name('portal.pendaftaran.pelatih');
+
     Route::post('kirim', [PortalController::class, 'daftar_calon_murid'])->name('store.calon.murid');
     Route::get('id-kacamatan', [PortalController::class, 'getkacamatan'])->name('getkacamatan');
 });

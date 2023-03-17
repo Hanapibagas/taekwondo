@@ -83,6 +83,14 @@
                                     <li class="nav-item"><a href="{{ route('portal.member') }}" class="nav-link">Daftar
                                             Calon Murid</a>
                                     </li>
+                                    <li class="nav-item"><a href="{{ route('portal.pendaftaran.dojang') }}"
+                                            class="nav-link">Daftar
+                                            Dojang</a>
+                                    </li>
+                                    <li class="nav-item"><a href="{{ route('portal.pendaftaran.pelatih') }}"
+                                            class="nav-link">Daftar
+                                            Pelatih</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
