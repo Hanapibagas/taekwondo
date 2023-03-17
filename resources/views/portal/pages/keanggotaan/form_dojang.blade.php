@@ -12,10 +12,10 @@
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>Pendaftaran Calon Murid</h2>
+            <h2>Pendaftaran Dojang</h2>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li>Pendaftaran Calon Murid</li>
+                <li>Pendaftaran Dojang</li>
             </ul>
         </div>
     </div>
@@ -41,147 +41,18 @@
                     <div class="col-lg-12">
                         <div class="sol-img mt60"></div>
                         <div class="ree-blog-details">
-                            <form action="{{ route('store.calon.murid') }}" method="POST">
+                            <form action="{{ route('dojeng.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="nama">Nama Lengkap <i class="text-danger"
+                                    <label for="nama">Nama Dojeng <i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="nama_lengkap" @error('nama')
-                                        is-invalid @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Tempat Lahir<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="tempat_lahir" @error('nama')
-                                        is-invalid @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Tanggal Lahir<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <input type="date" class="form-control" name="tanggal_lahir" @error('nama')
-                                        is-invalid @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Alamat<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="alamat" @error('nama') is-invalid
+                                    <input type="text" class="form-control" name="nama" @error('nama') is-invalid
                                         @enderror" name="nama" autocomplete="off" autofocus>
                                     @if($errors->has('nama'))
                                     <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
                                     @endif
                                 </div>
-                                <div class="form-group">
-                                    <label for="nama">Nama Orang Tua<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="nama_orang_tua" @error('nama')
-                                        is-invalid @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Pendidikan<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <select name="pendidikan" @error('pendidikan') is-invalid @enderror
-                                        class="form-control">
-                                        <option value="Silahkan pilih">Silahkan Pilih</option>
-                                        <option value="Pelajar">Pelajar</option>
-                                        <option value="Mahasiswa">Mahasiswa</option>
-                                        <option value="Umum">Umum</option>
-                                    </select>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Agama<i class="text-danger" style="font-size: 14px;">*</i></label>
-                                    <select class="form-control" name="agama" @error('agama') is-invalid @enderror">
-                                        <option value="Silahkan pilih">Silahkan Pilih</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Katolik">Katolik</option>
-                                        <option value="Konghucu">Konghucu</option>
-                                    </select>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">No. HP<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <input type="number" class="form-control" name="no_hp" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Status Pendaftaran<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <select class="form-control" name="status_pendaftaran" @error('nama') is-invalid
-                                        @enderror">
-                                        <option value="Silahkan pilih">Silahkan Pilih</option>
-                                        <option value="Baru">Baru</option>
-                                        <option value="Pindah">Pindah</option>
-                                    </select>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Geup<i class="text-danger" style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="geup" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Umum<i class="text-danger" style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="umum" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Kabupaten/Kota<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <select name="kabupaten_kota" class="form-control" id="kabupaten">
-                                        <option value="">Silahkan isi</option>
-                                        @foreach ($kabupaten as $item )
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Kacamatan<i class="text-danger"
-                                            style="font-size: 14px;">*</i></label>
-                                    <select name="kacamatan" class="form-control" id="kacamatan">
-                                        <option value="">Silahkan pilih</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Pilih Dojang</label><br>
-                                    <select name="dojang_id" class="form-control">
-                                        <option value="">Silahkan isi</option>
-                                        @foreach ($dojang as $item )
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <button style="margin-top: 90px;margin-bottom: 20px; margin-left: 80%" type="submit"
+                                <button style="margin-top: 40px;margin-bottom: 20px; margin-left: 80%" type="submit"
                                     class="btn btn-success"> Kirim </button>
                             </form>
                         </div>

@@ -343,4 +343,9 @@ class PortalController extends Controller
         $kabupaten = Regency::where('province_id', 73)->get();
         return view('portal.pages.keanggotaan.form_pelatih', compact('kabupaten', 'dojang', 'sabuks'));
     }
+
+    public function pendaftaran_dojang()
+    {
+        return view('portal.pages.keanggotaan.form_dojang');
+    }
 }
