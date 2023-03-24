@@ -8,9 +8,9 @@
             <p><b>Taekwondo Sulawesi Selatan</b></p>
           </div>
           <ul class="social">
-            <li><a href="#" target="_blank"><i class="flaticon-facebook-letter-logo"></i></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100090309902890&mibextid=ZbWKwL" target="_blank"><i class="flaticon-facebook-letter-logo"></i></a></li>
             <li><a href="#" target="_blank"><i class="flaticon-twitter-black-shape"></i></a></li>
-            <li><a href="#" target="_blank"><i class="flaticon-instagram-logo"></i></a></li>
+            <li><a href="https://instagram.com/taekwondosulsel?igshid=ZDdkNTZiNTM=" target="_blank"><i class="flaticon-instagram-logo"></i></a></li>
             <li><a href="#" target="_blank"><i class="flaticon-youtube"></i></a></li>
           </ul>
         </div>
@@ -20,6 +20,7 @@
         <div class="single-footer-widget">
           <h3>Statistik Pengunjung</h3>
           <ul class="footer-contact-list">
+            <li><a href="{{ route('login') }} " >Login</a></li>
             <li>User Online: 2</li>
             <li>Pengunjung Tahun Ini: 150</li>
             <li>Pengunjung Tahun Lalu: 0</li>
@@ -43,7 +44,7 @@
       </div>
 
       <div class="wa">
-        <a href="https://wa.me/+6282192272289" target="_blank"> <img src="{{ asset('portal') }}/assets/img/icon/wa.png" alt="" srcset="">
+        <a href="https://wa.me/+6285161646806" target="_blank"> <img src="{{ asset('portal') }}/assets/img/icon/wa.png" alt="" srcset="">
         </a>
       </div>
     </div>
@@ -52,7 +53,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-6 col-sm-6">
-          <p>Copyright &copy; 2022 All Rights Reserved.
+          <p>Copyright &copy; 2023 All Rights Reserved.
             Developed By <a href="https://linyjayainformatika.co.id/">liny Jaya Informatika</a></p>
         </div>
         {{-- <div class="col-lg-6 col-md-6 col-sm-6">

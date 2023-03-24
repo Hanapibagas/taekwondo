@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.master')
 
-@section('title', 'Dojeng')
+@section('title', 'Dojang')
 
 @push('style')
 
@@ -8,44 +8,45 @@
 
 @section('content')
 <div class="page-heading">
-  <div class="page-title">
-    <div class="row">
-      <div class="col-12 col-md-6 order-md-1 order-last">
-        <h3>Dojeng</h3>
-        <p class="text-subtitle text-muted">For user to check they list</p>
-      </div>
-      <div class="col-12 col-md-6 order-md-2 order-first">
-        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dojeng</li>
-          </ol>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="card">
-      <div class="card-body">
-        <button class="btn btn-success mb-4" data-toggle="modal" id="button-tambah"><i class="mdi mdi-plus-circle"></i> Tambah
-        </button>
-        <div class="table-responsive">
-          <table class="table table-bordered" id="table-data" style="width:100%">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Dojeng</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Dojeng</h3>
+                <p class="text-subtitle text-muted">For user to check they list</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dojeng</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <button class="btn btn-success mb-4" data-toggle="modal" id="button-tambah"><i
+                        class="mdi mdi-plus-circle"></i> Tambah
+                </button>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="table-data" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Dojang</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 @include('dashboard.admin.dojeng.modal')
@@ -55,7 +56,7 @@
 @push('script')
 
 <script>
-  $.ajaxSetup({
+    $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
@@ -147,6 +148,9 @@
       $('#button-simpan').html('Update');
       $('#id').val(data.id);
       $('#nama').val(data.name);
+      $('#pelatih').val(data.pelatih);
+      $('#alamat').val(data.alamat);
+      $('#kontak').val(data.kontak);
       $('#result').html('kosongkan jika tidak ingin mengubah lampiran');
     })
 

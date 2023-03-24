@@ -33,7 +33,7 @@
 </div>
 
 
-<section class="projects-area style-kalfin">
+<section class="projects-area ">
   <div class="container">
     <div class="row">
       @foreach ($data as $img)

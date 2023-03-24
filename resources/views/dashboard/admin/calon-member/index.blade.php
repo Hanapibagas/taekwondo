@@ -64,8 +64,8 @@
                                 <th>{{ $data->no_hp }}</th>
                                 <th>{{ $data->status_pendaftaran }}</th>
                                 <th>{{ $data->geup }}</th>
-                                <th>{{ $data->kabupaten_kota }}</th>
-                                <th>{{ $data->kacamatan }}</th>
+                                <th>{{ $data->kabupaten->name ?? ""}}</th>
+                                <th>{{ $data->Kacamatan->name ?? ""}}</th>
                                 <th>{{ $data->Dojang->name }}</th>
                             </tr>
                             @endforeach

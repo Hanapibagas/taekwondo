@@ -21,16 +21,24 @@
 <!-- Sambutan ketua End -->
 
 <!-- Kegiatan -->
-<section class="projects-area ptb-110">
+<section class="projects-area ">
   <div class="container">
     @include('portal.pages.home._berita')
   </div>
 </section>
 <!-- Kegiatan End -->
 
-<!-- Sponsor -->
-<div class="partner-area bg-f2feee">
+<!-- Iklan -->
+<div class="">
   <div class="container">
+    @include('portal.pages.home._iklan')
+  </div>
+</div>
+<!-- Iklan End -->
+
+<!-- Sponsor -->
+<div class="">
+  <div class="container mt-5">
     @include('portal.pages.home._sponsor')
   </div>
 </div>

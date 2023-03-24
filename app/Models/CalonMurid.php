@@ -31,4 +31,14 @@ class CalonMurid extends Model
     {
         return $this->belongsTo(Dojeng::class, 'dojang_id', 'id');
     }
+    
+    public function Kabupaten()
+    {
+        return $this->belongsTo(Regency::class, 'kabupaten_kota', 'id');
+    }
+
+    public function Kacamatan()
+    {
+        return $this->belongsTo(District::class, 'kacamatan', 'id');
+    }
 }

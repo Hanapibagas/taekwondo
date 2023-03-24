@@ -30,7 +30,7 @@
 </div>
 
 
-<section class="body-sejarah style-kalfin mb-5">
+<section class="body-sejarah">
   <div class="container">
     {{-- <h3>Sejarah dan Perkembangan</h3> --}}
     <p>{!! $sejarah->body !!}</p>

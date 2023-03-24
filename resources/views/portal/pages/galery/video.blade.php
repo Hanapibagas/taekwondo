@@ -29,7 +29,7 @@
 </div>
 
 
-<section class="projects-area style-kalfin mb-5">
+<section class="projects-area">
   <div class="container">
     <div class="row">
       @foreach ($data as $video)

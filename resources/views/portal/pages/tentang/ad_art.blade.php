@@ -35,7 +35,7 @@
 <!--</section>-->
 
 
-<section class="projects-details-area mb-5 style-kalfin">
+<section class="projects-details-area">
   <div class="container">
     <table id="table_id" class="table table-striped table-bordered" style="width:100%">
       <thead>

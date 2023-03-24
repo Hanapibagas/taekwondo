@@ -12,9 +12,11 @@ use App\Http\Controllers\Dashboard\Admin\About\PencabController;
 use App\Http\Controllers\Dashboard\Admin\About\AdArtController;
 use App\Http\Controllers\Dashboard\Admin\About\CalonMemberController;
 use App\Http\Controllers\Dashboard\Admin\About\SaranController;
+
 use App\Http\Controllers\Dashboard\Admin\AgendaController;
 use App\Http\Controllers\Dashboard\Admin\DashboardController;
 use App\Http\Controllers\Dashboard\Admin\BeritaController;
+use App\Http\Controllers\Dashboard\Admin\IklanController;
 use App\Http\Controllers\Dashboard\Admin\MateriController;
 use App\Http\Controllers\Dashboard\Admin\NaikTingkatController as AdminNaikTingkatController;
 use App\Http\Controllers\Dashboard\Admin\PengumumanController;
@@ -62,6 +64,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
+Route::post('store-dojeng', [DojengController::class, 'store'])->name('dojeng.store');
+Route::post('store-pelatih', [PelatihController::class, 'store'])->name('pelatih.store');
+
 // Role : Admin
 Route::middleware(['auth', 'role:1'])->group(function () {
     Route::prefix('admin')->group(function () {
@@ -73,6 +78,9 @@ Route::middleware(['auth', 'role:1'])->group(function () {
         // Sambutan
         Route::get('sambutan-ketua', [SambutanKetuaUmumController::class, 'index'])->name('sambutan-ketua');
         Route::post('sambutan-ketua/{id}', [SambutanKetuaUmumController::class, 'update'])->name('sambutan.update');
+
+        Route::get('saran-kritik', [PortalController::class, 'saran'])->name('portal.struktur1');
+        Route::post('kirim-saran-dan-kritik', [PortalController::class, 'kirim_saran'])->name('kirim_saran');
 
         // Sejarah
         Route::get('sejarah-perkembangan', [SejarahPerkembanganController::class, 'index'])->name('sejarah-perkembangan');
@@ -95,7 +103,6 @@ Route::middleware(['auth', 'role:1'])->group(function () {
         Route::get('ad-art', [AdArtController::class, 'index'])->name('ad-art');
         Route::post('ad-art/{id}', [AdArtController::class, 'update'])->name('ad.update');
 
-        // Saran
         Route::get('saran', [SaranController::class, 'index'])->name('index-saran');
 
         // Portal Berita
@@ -154,7 +161,6 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 
         // Pelatih
         Route::get('pelatih', [PelatihController::class, 'index'])->name('pelatih.index');
-        Route::post('store-pelatih', [PelatihController::class, 'store'])->name('pelatih.store');
         Route::get('edit-pelatih/{id}', [PelatihController::class, 'edit'])->name('pelatih.edit');
         Route::get('delete-pelatih/{id}', [PelatihController::class, 'destroy'])->name('pelatih.delete');
 
@@ -169,6 +175,11 @@ Route::middleware(['auth', 'role:1'])->group(function () {
         Route::post('store-slider', [SliderController::class, 'store'])->name('slider.store');
         Route::get('delete-slider/{id}', [SliderController::class, 'destroy'])->name('slider.delete');
 
+        // Iklan
+        Route::get('iklan', [IklanController::class, 'index'])->name('iklan');
+        Route::post('store-iklan', [IklanController::class, 'store'])->name('iklan.store');
+        Route::get('delete-iklan/{id}', [IklanController::class, 'destroy'])->name('iklan.delete');
+
         // Dashboard
         // Sabuk
         Route::get('sabuk', [SabukController::class, 'index'])->name('sabuk.index');
@@ -178,7 +189,7 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 
         // Dojeng
         Route::get('dojeng', [DojengController::class, 'index'])->name('dojeng.index');
-        Route::post('store-dojeng', [DojengController::class, 'store'])->name('dojeng.store');
+
         Route::get('edit-dojeng/{id}', [DojengController::class, 'edit'])->name('dojeng.edit');
         Route::get('delete-dojeng/{id}', [DojengController::class, 'destroy'])->name('dojeng.delete');
 
@@ -247,10 +258,6 @@ Route::get('/', [PortalController::class, 'home'])->name('portal.home');
 Route::prefix('tentang')->group(function () {
     Route::get('sambutan-ketua-umum', [PortalController::class, 'sambutan'])->name('portal.sambutan');
     Route::get('sejarah-dan-perkembangan', [PortalController::class, 'sejarah'])->name('portal.sejarah');
-
-    Route::get('saran-kritik', [PortalController::class, 'saran'])->name('portal.struktur1');
-    Route::post('kirim-saran-dan-kritik', [PortalController::class, 'kirim_saran'])->name('kirim_saran');
-
     Route::get('struktur-dan-kepengurusan', [PortalController::class, 'struktur'])->name('portal.struktur');
     Route::get('ad-art', [PortalController::class, 'ad'])->name('portal.ad');
     Route::get('ad-art/download/{id}', [PortalController::class, 'downloadAdArt'])->name('adArt.download');
@@ -275,6 +282,12 @@ Route::get('peraturan/download/{id}', [PortalController::class, 'download'])->na
 // Pengumuman
 Route::get('pengumuman', [PortalController::class, 'pengumuman'])->name('portal.pengumuman');
 Route::get('pengumuman/download/{id}', [PortalController::class, 'downloadPengumuman'])->name('pengumuman.download');
+
+// dojang
+Route::get('dojang', [PortalController::class, 'dojang'])->name('portal.dojang');
+Route::get('dojang/{id}', [PortalController::class, 'detailDojang'])->name('portal.dojang.detail');
+
+
 
 // Gallery
 Route::prefix('galery')->group(function () {

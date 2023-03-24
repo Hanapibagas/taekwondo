@@ -13,7 +13,7 @@
     @foreach ($berita as $data)
     <div class="col-lg-12 col-md-12">
       <div class="single-projects-box">
-        <a href="{{ url('berita/detail/'.$data->id) }}"><img src="{{ asset('storage') }}/images/berita/{{ $data->image }}" alt="image"></a>
+        <a href="{{ url('berita/detail/'.$data->id) }}"><img src="{{ asset('storage') }}/images/berita/{{ $data->image }}" alt="image" style="height: 200px; width: 500px;"></a>
         <div class="projects-content">
           {{-- <span>Design/Idea</span> --}}
           <h3><a href="{{  url('berita/detail/'.$data->id)  }}">{{ $data->title }}</a></h3>

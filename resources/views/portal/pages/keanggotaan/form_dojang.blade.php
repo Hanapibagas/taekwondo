@@ -1,6 +1,6 @@
 @extends('portal.layouts.master')
 
-@section('title', 'Data Anggota')
+@section('title', 'Data Dojang')
 
 @push('style')
 {{--
@@ -41,15 +41,74 @@
                     <div class="col-lg-12">
                         <div class="sol-img mt60"></div>
                         <div class="ree-blog-details">
-                            <form action="{{ route('dojeng.store') }}" method="POST">
+                            <form action="{{ route('dojeng.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                 <input type="hidden" name="id" id="id">
+                                <div class="form-group">
+                                    <label for="nama">Nama Pelatih Utama <i class="text-danger"
+                                            style="font-size: 14px;">*</i></label>
+                                    <input type="text" class="form-control" name="pelatih" @error('pelatih') is-invalid
+                                        @enderror" name="pelatih" autocomplete="off" autofocus>
+                                    @if($errors->has('pelatih'))
+                                    <span class="form-text text-muted text-danger">{{ $errors->first('pelatih')
+                                        }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Alamat Dojang <i class="text-danger"
+                                            style="font-size: 14px;">*</i></label>
+                                    <input type="text" class="form-control" name="alamat" @error('alamat') is-invalid
+                                        @enderror" name="alamat" autocomplete="off" autofocus>
+                                    @if($errors->has('alamat'))
+                                    <span class="form-text text-muted text-danger">{{ $errors->first('alamat') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Kabupaten/Kota<i class="text-danger"
+                                            style="font-size: 14px;">*</i></label>
+                                    <select name="kabupaten" class="form-control" id="kabupaten">
+                                        <option value="">Silahkan isi</option>
+                                        @foreach ($kabupaten as $item )
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Kacamatan<i class="text-danger"
+                                            style="font-size: 14px;">*</i></label>
+                                    <select name="kacamatan" class="form-control" id="kacamatan">
+                                        <option value="">Silahkan pilih</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="nama">Nama Dojeng <i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="nama" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
+                                    <input type="text" class="form-control" name="name" @error('name') is-invalid
+                                        @enderror" name="name" autocomplete="off" autofocus>
+                                    @if($errors->has('name'))
+                                    <span class="form-text text-muted text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">No. Hp/Wa<i class="text-danger"
+                                            style="font-size: 14px;">*</i></label>
+                                    <input type="text" class="form-control" name="kontak" @error('kontak') is-invalid
+                                        @enderror" name="kontak" autocomplete="off" autofocus>
+                                    @if($errors->has('kontak'))
+                                    <span class="form-text text-muted text-danger">{{ $errors->first('kontak') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Deskripsi <i class="text-danger"
+                                            style="font-size: 14px;">*</i></label>
+                                    <textarea name="deskripsi" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Foto <i class="text-danger" style="font-size: 14px;">*</i></label>
+                                    <input type="file" class="form-control" name="foto" @error('foto') is-invalid
+                                        @enderror" name="foto" autocomplete="off" autofocus>
+                                    @if($errors->has('foto'))
+                                    <span class="form-text text-muted text-danger">{{ $errors->first('foto') }}</span>
                                     @endif
                                 </div>
                                 <button style="margin-top: 40px;margin-bottom: 20px; margin-left: 80%" type="submit"

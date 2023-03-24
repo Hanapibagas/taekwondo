@@ -1,7 +1,7 @@
 <div class="row align-items-center">
   <div class="col-lg-6 col-md-12">
-    <div class="about-image">
-      <img src="{{ asset('portal/ketua.png') }}" alt="image"  class="img-responsive">
+    <div class="">
+      <img src="{{ asset('portal/ketua.png') }}" alt="image" style="width:60%"  class="mx-auto d-flex">
     </div>
   </div>
   <div class="col-lg-6 col-md-12">

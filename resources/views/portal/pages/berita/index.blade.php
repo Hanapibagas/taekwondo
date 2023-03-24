@@ -27,7 +27,7 @@
   <div class="shape20"><img src="{{ asset('portal') }}/assets/img/shape/14.svg" alt="image"></div>
 </div>
 
-<section class="blog-area style-kalfin">
+<section class="blog-area ">
   <div class="container">
     <div class="row">
       @forelse($berita as $data)

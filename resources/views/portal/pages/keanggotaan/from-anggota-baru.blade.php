@@ -41,7 +41,7 @@
                     <div class="col-lg-12">
                         <div class="sol-img mt60"></div>
                         <div class="ree-blog-details">
-                            <form action="{{ route('store.calon.murid') }}" method="POST">
+                            <form action="{{ route('store.calon.murid') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap <i class="text-danger"

@@ -8,46 +8,45 @@
 
 @section('content')
 <div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Berita</h3>
-                <p class="text-subtitle text-muted">For user to check they list</p>
-            </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Berita</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Berita</h3>
+        <p class="text-subtitle text-muted">For user to check they list</p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Berita</li>
+          </ol>
+        </nav>
+      </div>
     </div>
-    <section class="section">
-        <div class="card">
-            <div class="card-body">
-                <button class="btn btn-success mb-4" data-toggle="modal" id="button-tambah"><i
-                        class="mdi mdi-plus-circle"></i> Tambah
-                </button>
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="table-kebijakan" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Judul</th>
-                                <th>Gambar</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  </div>
+  <section class="section">
+    <div class="card">
+      <div class="card-body">
+        <button class="btn btn-success mb-4" data-toggle="modal" id="button-tambah"><i class="mdi mdi-plus-circle"></i> Tambah
+        </button>
+        <div class="table-responsive">
+          <table class="table table-bordered" id="table-kebijakan" style="width:100%">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Judul</th>
+                <th>Gambar</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
 
 @include('dashboard.admin.berita._modal')
@@ -56,7 +55,7 @@
 
 @push('script')
 <script>
-    ClassicEditor
+  ClassicEditor
     .create(document.querySelector('#desc'))
     .catch(error => {
       console.error(error);
@@ -65,7 +64,7 @@
 </script>
 
 <script>
-    $.ajaxSetup({
+  $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }

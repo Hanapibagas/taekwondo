@@ -93,7 +93,7 @@
         ],
         responsive: { 0: { items: 1 }, 768: { items: 2 }, 1200: { items: 2 } },
     });
-    // $("select").niceSelect();
+    $("select").niceSelect();
     $(".input-counter").each(function () {
         var spinner = jQuery(this),
             input = spinner.find('input[type="text"]'),

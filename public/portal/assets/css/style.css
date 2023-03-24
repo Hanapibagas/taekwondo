@@ -2555,8 +2555,8 @@ img {
 .about-area .row {
   position: relative;
   z-index: 1;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .about-area .row::before {
@@ -4406,8 +4406,8 @@ blockquote::before,
   /* z-index: 1; */
   background: transparent url(../img/page-title-bg.jpg) right top no-repeat;
   text-align: center;
-  padding-top: 190px;
-  /* padding-bottom: 100px; */
+  padding-top: 100px;
+  padding-bottom: 20px;
 }
 
 .page-title-content h2 {
@@ -9299,9 +9299,10 @@ blockquote::before,
     z-index: 2;
   }
 
-  .style-kalfin {
-    margin-top: 110px;
-    position: relative;
-    z-index: 1;
-  }
+
+  /*.style-kalfin {*/
+  /*  margin-top: 110px;*/
+  /*  position: relative;*/
+  /*  z-index: 1;*/
+  /*}*/
 }

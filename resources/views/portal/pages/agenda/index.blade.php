@@ -27,7 +27,7 @@
   <div class="shape20"><img src="{{ asset('portal') }}/assets/img/shape/14.svg" alt="image"></div>
 </div>
 
-<section class="projects-details-area mb-5 style-kalfin">
+<section class="projects-details-area ">
   <div class="container">
     <table id="table_id" class="table table-striped table-bordered" style="width:100%">
       <thead>

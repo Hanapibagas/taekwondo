@@ -28,10 +28,10 @@
   <div class="shape20"><img src="{{ asset('portal') }}/assets/img/shape/14.svg" alt="image"></div>
 </div>
 
-<section class="about-area style-kalfin mb-5">
+<section class="about-area ">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-6 col-md-12 col-sm-12 mb-2">
+      <div class="col-lg-6 col-md-12 col-sm-12 ">
         <div class="about-content">
           <h4><b>{{ $sambutan->nama }}</b></h4>
           <p>{!! $sambutan->body !!}</p>

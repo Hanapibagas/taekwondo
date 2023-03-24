@@ -33,7 +33,7 @@
   <div class="shape20"><img src="{{ asset('portal') }}/assets/img/shape/14.svg" alt="image"></div>
 </div>
 
-<div class="container mb-5 style-kalfin">
+<div class="container  ">
   <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
       <tr>
