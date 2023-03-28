@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @stack('link')
+     @stack('link')
 
     <link rel="stylesheet" href="{{ asset('portal') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('portal') }}/assets/css/animate.min.css">
@@ -19,10 +19,8 @@
     <link rel="stylesheet" href="{{ asset('portal') }}/assets/css/progresscircle.min.css">
     <link rel="stylesheet" href="{{ asset('portal') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('portal') }}/assets/css/responsive.css">
-
-    <script type='text/javascript'
-        src='https://platform-api.sharethis.com/js/sharethis.js#property=61e8bbd95f957c0019a78927&product=sticky-share-buttons'
-        async='async'></script>
+    
+     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=61e8bbd95f957c0019a78927&product=sticky-share-buttons' async='async'></script>
 
     <title>@yield('title')</title>
     <link rel="icon" type="image/png" href="{{ asset('portal') }}/assets/img/favicon.png">
@@ -58,7 +56,7 @@
     <script src="{{ asset('portal') }}/assets/js/jquery.min.js"></script>
     <script src="{{ asset('portal') }}/assets/js/jquery.ajaxchimp.min.js"></script>
     <script src="{{ asset('portal') }}/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="{{ asset('portal') }}/assets/js/jquery.nice-select.min.js"></script>
+     <script src="{{ asset('portal') }}/assets/js/jquery.nice-select.min.js"></script> 
     <script src="{{ asset('portal') }}/assets/js/jquery.meanmenu.js"></script>
     <script data-async="false" src=" {{ asset('portal') }}/assets/js/email-decode.min.js"></script>
     <script src="{{ asset('portal') }}/assets/js/popper.min.js"></script>

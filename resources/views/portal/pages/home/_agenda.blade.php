@@ -1,8 +1,3 @@
-@extends('portal.layouts.master')
-
-@section('title', 'Agenda')
-
-@section('content')
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
@@ -41,7 +36,7 @@
                 @php
                 $no = 1;
                 @endphp
-                @forelse ($data as $agenda)
+                @forelse ($agenda as $agenda)
                 <tr>
                     <td>{{ $no }}</td>
                     <td>{{ $agenda->agenda }}</td>
@@ -61,4 +56,3 @@
         </table>
     </div>
 </section>
-@endsection

@@ -9,6 +9,15 @@
 @endpush
 
 @section('content')
+@if (session('status'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Sukses!',
+        text : "{{ session('status') }}",
+    });
+</script>
+@endif
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
@@ -97,6 +106,7 @@
                                         <option value="Pelajar">Pelajar</option>
                                         <option value="Mahasiswa">Mahasiswa</option>
                                         <option value="Umum">Umum</option>
+                                        <option value="Jenis pendidikan">Jenis Pendidikan</option>
                                     </select>
                                     @if($errors->has('nama'))
                                     <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
@@ -148,14 +158,6 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Umum<i class="text-danger" style="font-size: 14px;">*</i></label>
-                                    <input type="text" class="form-control" name="umum" @error('nama') is-invalid
-                                        @enderror" name="nama" autocomplete="off" autofocus>
-                                    @if($errors->has('nama'))
-                                    <span class="form-text text-muted text-danger">{{ $errors->first('nama') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
                                     <label for="nama">Kabupaten/Kota<i class="text-danger"
                                             style="font-size: 14px;">*</i></label>
                                     <select name="kabupaten_kota" class="form-control" id="kabupaten">
@@ -195,6 +197,7 @@
 @endsection
 
 @push('script')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>

@@ -35,12 +35,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Kabupaten/Kota:</label>
-                                    {{-- <select name="kabupaten" class="form-control" id="kabupaten">
-                                        <option value="">Silahkan isi</option>
-                                        @foreach ($kabupaten as $item )
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select> --}}
+                                    
                                 </div>
                             </div>
                         </div>

@@ -1,15 +1,10 @@
-@extends('portal.layouts.master')
-
-@section('title', 'Agenda')
-
-@section('content')
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>Agenda</h2>
+            <h2>Pengumuman</h2>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li>Agenda</li>
+                <li>Pengumuman</li>
             </ul>
         </div>
     </div>
@@ -27,26 +22,27 @@
     <div class="shape20"><img src="{{ asset('portal') }}/assets/img/shape/14.svg" alt="image"></div>
 </div>
 
-<section class="projects-details-area ">
+<section class="projects-details-area">
     <div class="container">
         <table id="table_id" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th width="2">No</th>
-                    <th>Agenda</th>
-                    <th>File</th>
+                    <th>Materi</th>
+                    <th>Link Video</th>
+                    <th>Lampiran</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                 $no = 1;
                 @endphp
-                @forelse ($data as $agenda)
+                @forelse ($pengumuman as $materi)
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $agenda->agenda }}</td>
-                    <td width="5"><a href="{{ url('agenda/download/'.$agenda->id) }}" class="btn btn-primary"> Download
-                        </a>
+                    <td>{{ $materi->tentang }}</td>
+                    <td width="5"><a href="{{ url('pengumuman/download/'.$materi->id) }}" class="btn btn-primary">
+                            Download </a>
                     </td>
                 </tr>
                 @php
@@ -61,4 +57,3 @@
         </table>
     </div>
 </section>
-@endsection

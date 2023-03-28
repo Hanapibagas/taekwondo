@@ -1,15 +1,11 @@
-@extends('portal.layouts.master')
-
-@section('title', 'Agenda')
-
-@section('content')
 <div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
-            <h2>Agenda</h2>
+            <h2>Photo</h2>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li>Agenda</li>
+                <li>Galery</li>
+                <li>Photo</li>
             </ul>
         </div>
     </div>
@@ -27,38 +23,26 @@
     <div class="shape20"><img src="{{ asset('portal') }}/assets/img/shape/14.svg" alt="image"></div>
 </div>
 
-<section class="projects-details-area ">
+
+<section class="projects-area ">
     <div class="container">
-        <table id="table_id" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                    <th width="2">No</th>
-                    <th>Agenda</th>
-                    <th>File</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php
-                $no = 1;
-                @endphp
-                @forelse ($data as $agenda)
-                <tr>
-                    <td>{{ $no }}</td>
-                    <td>{{ $agenda->agenda }}</td>
-                    <td width="5"><a href="{{ url('agenda/download/'.$agenda->id) }}" class="btn btn-primary"> Download
-                        </a>
-                    </td>
-                </tr>
-                @php
-                $no++;
-                @endphp
-                @empty
-                <tr>
-                    <td colspan="3" class="text-center">Tidak ada Data.</td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
+        <div class="row">
+            @foreach ($photo as $img)
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-projects-box">
+                    <a class="example-image-link" href="{{ asset('storage/gallery/images/' . $img->images) }}"
+                        data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                        <img class="example-image" src="{{ asset('storage/gallery/images/' . $img->images) }}"
+                            alt="image" style="width: 356px; height: 286px;" />
+                    </a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+
+        <div class="shape13"><img src="{{ asset('portal') }}/assets/img/shape/13.svg" alt="image"></div>
+        <div class="shape15"><img src="{{ asset('portal') }}/assets/img/shape/13.svg" alt="image"></div>
+
     </div>
 </section>
-@endsection
